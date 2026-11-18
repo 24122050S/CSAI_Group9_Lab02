@@ -1,0 +1,528 @@
+{
+  "puzzle_id": "5x5_06_figure1_showcase",
+  "title": "5x5 Showcase — Figure 1 Compound & Connected",
+  "difficulty": "Showcase",
+  "grid_size": 5,
+  "description": "Models the exact clue patterns from Figure 1 of the specification (Compound AND/OR/IMPLIES, Intersection, and 1D/2D Orthogonal Connectivity).",
+  "allow_inconsistent": false,
+  "initial_revealed": [
+    "C1",
+    "C3",
+    "B4",
+    "E4"
+  ],
+  "cards": [
+    {
+      "cell_id": "A1",
+      "name": "Abel",
+      "profession": "Astronaut",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A1",
+        "owner_cell": "A1",
+        "type": "EQUAL_CRIMINALS",
+        "text": "Row 1 and row 5 have the same number of criminals.",
+        "region": {
+          "type": "ROW",
+          "row": 1
+        },
+        "region2": {
+          "type": "ROW",
+          "row": 5
+        }
+      }
+    },
+    {
+      "cell_id": "B1",
+      "name": "Bea",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B1",
+        "owner_cell": "B1",
+        "type": "DIFFERENT",
+        "text": "Eliza and Jonas have different statuses.",
+        "target1": "E1",
+        "target2": "E2"
+      }
+    },
+    {
+      "cell_id": "C1",
+      "name": "Clara",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C1",
+        "owner_cell": "C1",
+        "type": "COMPOUND",
+        "text": "Exactly 2 of the 4 innocents neighboring Mara are in column B.",
+        "operator": "AND",
+        "sub_clues": [
+          {
+            "clue_id": "c1_a",
+            "owner_cell": "C1",
+            "type": "EXACTLY",
+            "text": "Exactly 4 people in the neighbors of Mara (C3) are innocents.",
+            "count": 4,
+            "region": {
+              "type": "NEIGHBORS",
+              "target": "Mara"
+            },
+            "target_status": "INNOCENT"
+          },
+          {
+            "clue_id": "c1_b",
+            "owner_cell": "C1",
+            "type": "EXACTLY",
+            "text": "Exactly 2 people in the neighbors of Mara (C3) ∩ column B are innocents.",
+            "count": 2,
+            "region": {
+              "type": "INTERSECTION",
+              "sub_regions": [
+                {
+                  "type": "NEIGHBORS",
+                  "target": "Mara"
+                },
+                {
+                  "type": "COL",
+                  "col": "B"
+                }
+              ]
+            },
+            "target_status": "INNOCENT"
+          }
+        ]
+      }
+    },
+    {
+      "cell_id": "D1",
+      "name": "Derek",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D1",
+        "owner_cell": "D1",
+        "type": "NO",
+        "text": "There are no criminals in {Owen (E3), Priya (A4)}.",
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "E3",
+            "A4"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "E1",
+      "name": "Eliza",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_E1",
+        "owner_cell": "E1",
+        "type": "COMPOUND",
+        "text": "Either Abel is a Criminal or Wendy is a Criminal.",
+        "operator": "OR",
+        "sub_clues": [
+          {
+            "clue_id": "e1_a",
+            "owner_cell": "E1",
+            "type": "FACT",
+            "text": "Abel is a Criminal.",
+            "target": "Abel",
+            "status": "CRIMINAL"
+          },
+          {
+            "clue_id": "e1_b",
+            "owner_cell": "E1",
+            "type": "FACT",
+            "text": "Wendy is a Criminal.",
+            "target": "Wendy",
+            "status": "CRIMINAL"
+          }
+        ]
+      }
+    },
+    {
+      "cell_id": "A2",
+      "name": "Franz",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A2",
+        "owner_cell": "A2",
+        "type": "SAME",
+        "text": "Ivy and Noah have the same status.",
+        "target1": "D2",
+        "target2": "D3"
+      }
+    },
+    {
+      "cell_id": "B2",
+      "name": "Grant",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B2",
+        "owner_cell": "B2",
+        "type": "CONNECTED",
+        "text": "All criminals neighboring Wendy are orthogonally connected.",
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "Wendy"
+        }
+      }
+    },
+    {
+      "cell_id": "C2",
+      "name": "Hannah",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C2",
+        "owner_cell": "C2",
+        "type": "DIFFERENT",
+        "text": "Hannah and Mara have different statuses.",
+        "target1": "C2",
+        "target2": "C3"
+      }
+    },
+    {
+      "cell_id": "D2",
+      "name": "Ivy",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D2",
+        "owner_cell": "D2",
+        "type": "SAME",
+        "text": "Roy and Wendy have the same status.",
+        "target1": "C4",
+        "target2": "C5"
+      }
+    },
+    {
+      "cell_id": "E2",
+      "name": "Jonas",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_E2",
+        "owner_cell": "E2",
+        "type": "NO",
+        "text": "There are no criminals in {Owen (E3), Tom (E4), Yara (E5)}.",
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "E3",
+            "E4",
+            "E5"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "A3",
+      "name": "Karl",
+      "profession": "Painter",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A3",
+        "owner_cell": "A3",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in row 2 are criminals.",
+        "count": 2,
+        "region": {
+          "type": "ROW",
+          "row": 2
+        }
+      }
+    },
+    {
+      "cell_id": "B3",
+      "name": "Leo",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B3",
+        "owner_cell": "B3",
+        "type": "NO",
+        "text": "There are no criminals in {Abel (A1), Hannah (C2), Sophia (D4)}.",
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "A1",
+            "C2",
+            "D4"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "C3",
+      "name": "Mara",
+      "profession": "Astronaut",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C3",
+        "owner_cell": "C3",
+        "type": "COMPOUND",
+        "text": "If Clara is Innocent, then Derek is Innocent.",
+        "operator": "IMPLIES",
+        "sub_clues": [
+          {
+            "clue_id": "c3_a",
+            "owner_cell": "C3",
+            "type": "FACT",
+            "text": "Clara is Innocent.",
+            "target": "Clara",
+            "status": "INNOCENT"
+          },
+          {
+            "clue_id": "c3_b",
+            "owner_cell": "C3",
+            "type": "FACT",
+            "text": "Derek is Innocent.",
+            "target": "Derek",
+            "status": "INNOCENT"
+          }
+        ]
+      }
+    },
+    {
+      "cell_id": "D3",
+      "name": "Noah",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D3",
+        "owner_cell": "D3",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in row 3 are criminals.",
+        "count": 2,
+        "region": {
+          "type": "ROW",
+          "row": 3
+        }
+      }
+    },
+    {
+      "cell_id": "E3",
+      "name": "Owen",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_E3",
+        "owner_cell": "E3",
+        "type": "DIFFERENT",
+        "text": "Priya and Quilla have different statuses.",
+        "target1": "A4",
+        "target2": "B4"
+      }
+    },
+    {
+      "cell_id": "A4",
+      "name": "Priya",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A4",
+        "owner_cell": "A4",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in row 4 are criminals.",
+        "count": 2,
+        "region": {
+          "type": "ROW",
+          "row": 4
+        }
+      }
+    },
+    {
+      "cell_id": "B4",
+      "name": "Quilla",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B4",
+        "owner_cell": "B4",
+        "type": "COMPOUND",
+        "text": "Uma is one of Priya's 2 criminal neighbors.",
+        "operator": "AND",
+        "sub_clues": [
+          {
+            "clue_id": "b4_a",
+            "owner_cell": "B4",
+            "type": "FACT",
+            "text": "Uma is a Criminal.",
+            "target": "Uma",
+            "status": "CRIMINAL"
+          },
+          {
+            "clue_id": "b4_b",
+            "owner_cell": "B4",
+            "type": "EXACTLY",
+            "text": "Exactly 2 people in the neighbors of Priya (A4) are criminals.",
+            "count": 2,
+            "region": {
+              "type": "NEIGHBORS",
+              "target": "Priya"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "cell_id": "C4",
+      "name": "Roy",
+      "profession": "Guard",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C4",
+        "owner_cell": "C4",
+        "type": "SAME",
+        "text": "Sophia and Tom have the same status.",
+        "target1": "D4",
+        "target2": "E4"
+      }
+    },
+    {
+      "cell_id": "D4",
+      "name": "Sophia",
+      "profession": "Painter",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D4",
+        "owner_cell": "D4",
+        "type": "DIFFERENT",
+        "text": "Wendy and Xavier have different statuses.",
+        "target1": "C5",
+        "target2": "D5"
+      }
+    },
+    {
+      "cell_id": "E4",
+      "name": "Tom",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_E4",
+        "owner_cell": "E4",
+        "type": "COMPOUND",
+        "text": "Both innocents to the right of Abel are connected.",
+        "operator": "AND",
+        "sub_clues": [
+          {
+            "clue_id": "e4_a",
+            "owner_cell": "E4",
+            "type": "EXACTLY",
+            "text": "Exactly 2 people in cells to the right of Abel (A1) are innocents.",
+            "count": 2,
+            "region": {
+              "type": "DIRECTIONAL",
+              "target": "Abel",
+              "direction": "RIGHT"
+            },
+            "target_status": "INNOCENT"
+          },
+          {
+            "clue_id": "e4_b",
+            "owner_cell": "E4",
+            "type": "CONNECTED",
+            "text": "All innocents in cells to the right of Abel (A1) are orthogonally connected.",
+            "region": {
+              "type": "DIRECTIONAL",
+              "target": "Abel",
+              "direction": "RIGHT"
+            },
+            "target_status": "INNOCENT"
+          }
+        ]
+      }
+    },
+    {
+      "cell_id": "A5",
+      "name": "Uma",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A5",
+        "owner_cell": "A5",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in row 5 are criminals.",
+        "count": 2,
+        "region": {
+          "type": "ROW",
+          "row": 5
+        }
+      }
+    },
+    {
+      "cell_id": "B5",
+      "name": "Victor",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B5",
+        "owner_cell": "B5",
+        "type": "PARITY",
+        "text": "There is an odd number of criminals in column C.",
+        "region": {
+          "type": "COL",
+          "col": "C"
+        },
+        "parity": "ODD"
+      }
+    },
+    {
+      "cell_id": "C5",
+      "name": "Wendy",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C5",
+        "owner_cell": "C5",
+        "type": "SAME",
+        "text": "Xavier and Yara have the same status.",
+        "target1": "D5",
+        "target2": "E5"
+      }
+    },
+    {
+      "cell_id": "D5",
+      "name": "Xavier",
+      "profession": "Detective",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D5",
+        "owner_cell": "D5",
+        "type": "EQUAL_CRIMINALS",
+        "text": "Row 1 and row 5 have the same number of criminals.",
+        "region": {
+          "type": "ROW",
+          "row": 1
+        },
+        "region2": {
+          "type": "ROW",
+          "row": 5
+        }
+      }
+    },
+    {
+      "cell_id": "E5",
+      "name": "Yara",
+      "profession": "Painter",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_E5",
+        "owner_cell": "E5",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in the four corners are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CORNERS"
+        }
+      }
+    }
+  ]
+}

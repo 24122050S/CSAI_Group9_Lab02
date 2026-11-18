@@ -1,0 +1,96 @@
+{
+  "puzzle_id": "3x3_05_inconsistent_case",
+  "title": "3x3 Diagnostic — Contradictory Clues (UNSAT)",
+  "difficulty": "Diagnostic",
+  "grid_size": 3,
+  "description": "Demonstrates INCONSISTENT detection when active clues form an unsatisfiable CNF knowledge base.",
+  "allow_inconsistent": true,
+  "initial_revealed": [
+    "A1",
+    "A2"
+  ],
+  "cards": [
+    {
+      "cell_id": "A1",
+      "name": "Abel",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A1",
+        "owner_cell": "A1",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in row 1 are criminals.",
+        "count": 2,
+        "region": {
+          "type": "ROW",
+          "row": 1
+        }
+      }
+    },
+    {
+      "cell_id": "B1",
+      "name": "Bea",
+      "profession": "Guard",
+      "status": "CRIMINAL",
+      "clue": null
+    },
+    {
+      "cell_id": "C1",
+      "name": "Clara",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": null
+    },
+    {
+      "cell_id": "A2",
+      "name": "Derek",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A2",
+        "owner_cell": "A2",
+        "type": "NO",
+        "text": "There are no criminals in row 1.",
+        "region": {
+          "type": "ROW",
+          "row": 1
+        }
+      }
+    },
+    {
+      "cell_id": "B2",
+      "name": "Eliza",
+      "profession": "Detective",
+      "status": "INNOCENT",
+      "clue": null
+    },
+    {
+      "cell_id": "C2",
+      "name": "Franz",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": null
+    },
+    {
+      "cell_id": "A3",
+      "name": "Grant",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": null
+    },
+    {
+      "cell_id": "B3",
+      "name": "Hannah",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": null
+    },
+    {
+      "cell_id": "C3",
+      "name": "Ivy",
+      "profession": "Detective",
+      "status": "INNOCENT",
+      "clue": null
+    }
+  ]
+}

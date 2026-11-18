@@ -1,0 +1,157 @@
+{
+  "puzzle_id": "3x3_04_ambiguous_case",
+  "title": "3x3 Diagnostic — Ambiguous State (No-Guess Stop)",
+  "difficulty": "Diagnostic",
+  "grid_size": 3,
+  "description": "Demonstrates no-guess behavior: solves B1 & C1, then halts cleanly as STUCK when multiple models remain.",
+  "allow_inconsistent": false,
+  "initial_revealed": [
+    "A1"
+  ],
+  "cards": [
+    {
+      "cell_id": "A1",
+      "name": "Abel",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A1",
+        "owner_cell": "A1",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in row 1 are criminals.",
+        "count": 2,
+        "region": {
+          "type": "ROW",
+          "row": 1
+        }
+      }
+    },
+    {
+      "cell_id": "B1",
+      "name": "Bea",
+      "profession": "Guard",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B1",
+        "owner_cell": "B1",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in row 2 is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "ROW",
+          "row": 2
+        }
+      }
+    },
+    {
+      "cell_id": "C1",
+      "name": "Clara",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C1",
+        "owner_cell": "C1",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in row 3 is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "ROW",
+          "row": 3
+        }
+      }
+    },
+    {
+      "cell_id": "A2",
+      "name": "Derek",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A2",
+        "owner_cell": "A2",
+        "type": "AT_MOST",
+        "text": "At most 3 people in column B are criminals.",
+        "count": 3,
+        "region": {
+          "type": "COL",
+          "col": "B"
+        }
+      }
+    },
+    {
+      "cell_id": "B2",
+      "name": "Eliza",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B2",
+        "owner_cell": "B2",
+        "type": "AT_LEAST",
+        "text": "At least 1 people in column B are criminals.",
+        "count": 1,
+        "region": {
+          "type": "COL",
+          "col": "B"
+        }
+      }
+    },
+    {
+      "cell_id": "C2",
+      "name": "Franz",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C2",
+        "owner_cell": "C2",
+        "type": "AT_MOST",
+        "text": "At most 1 people in column C are criminals.",
+        "count": 1,
+        "region": {
+          "type": "COL",
+          "col": "C"
+        }
+      }
+    },
+    {
+      "cell_id": "A3",
+      "name": "Grant",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A3",
+        "owner_cell": "A3",
+        "type": "SAME",
+        "text": "Derek and Grant have the same status.",
+        "target1": "A2",
+        "target2": "A3"
+      }
+    },
+    {
+      "cell_id": "B3",
+      "name": "Hannah",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B3",
+        "owner_cell": "B3",
+        "type": "SAME",
+        "text": "Eliza and Hannah have the same status.",
+        "target1": "B2",
+        "target2": "B3"
+      }
+    },
+    {
+      "cell_id": "C3",
+      "name": "Ivy",
+      "profession": "Detective",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C3",
+        "owner_cell": "C3",
+        "type": "SAME",
+        "text": "Franz and Ivy have the same status.",
+        "target1": "C2",
+        "target2": "C3"
+      }
+    }
+  ]
+}

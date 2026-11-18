@@ -1,0 +1,159 @@
+{
+  "puzzle_id": "3x3_01_core_intro",
+  "title": "3x3 Stage 1 — Tutorial Watch",
+  "difficulty": "Easy",
+  "grid_size": 3,
+  "description": "Handcrafted 3x3 tutorial puzzle using only the 6 core clue templates.",
+  "allow_inconsistent": false,
+  "initial_revealed": [
+    "A1"
+  ],
+  "cards": [
+    {
+      "cell_id": "A1",
+      "name": "Abel",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A1",
+        "owner_cell": "A1",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in row 1 are criminals.",
+        "count": 2,
+        "region": {
+          "type": "ROW",
+          "row": 1
+        }
+      }
+    },
+    {
+      "cell_id": "B1",
+      "name": "Bea",
+      "profession": "Guard",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B1",
+        "owner_cell": "B1",
+        "type": "DIFFERENT",
+        "text": "Bea and Derek have different statuses.",
+        "target1": "B1",
+        "target2": "A2"
+      }
+    },
+    {
+      "cell_id": "C1",
+      "name": "Clara",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C1",
+        "owner_cell": "C1",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in column C is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "COL",
+          "col": "C"
+        }
+      }
+    },
+    {
+      "cell_id": "A2",
+      "name": "Derek",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A2",
+        "owner_cell": "A2",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in row 2 is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "ROW",
+          "row": 2
+        }
+      }
+    },
+    {
+      "cell_id": "B2",
+      "name": "Eliza",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B2",
+        "owner_cell": "B2",
+        "type": "AT_LEAST",
+        "text": "At least 3 people in the neighbors of Eliza (B2) are criminals.",
+        "count": 3,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "B2"
+        }
+      }
+    },
+    {
+      "cell_id": "C2",
+      "name": "Franz",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C2",
+        "owner_cell": "C2",
+        "type": "SAME",
+        "text": "Eliza and Grant have the same status.",
+        "target1": "B2",
+        "target2": "A3"
+      }
+    },
+    {
+      "cell_id": "A3",
+      "name": "Grant",
+      "profession": "Farmer",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A3",
+        "owner_cell": "A3",
+        "type": "AT_MOST",
+        "text": "At most 1 people in row 3 are criminals.",
+        "count": 1,
+        "region": {
+          "type": "ROW",
+          "row": 3
+        }
+      }
+    },
+    {
+      "cell_id": "B3",
+      "name": "Hannah",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B3",
+        "owner_cell": "B3",
+        "type": "NO",
+        "text": "There are no criminals in {Hannah (B3), Ivy (C3)}.",
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B3",
+            "C3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "C3",
+      "name": "Ivy",
+      "profession": "Detective",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C3",
+        "owner_cell": "C3",
+        "type": "DIFFERENT",
+        "text": "Grant and Ivy have different statuses.",
+        "target1": "A3",
+        "target2": "C3"
+      }
+    }
+  ]
+}

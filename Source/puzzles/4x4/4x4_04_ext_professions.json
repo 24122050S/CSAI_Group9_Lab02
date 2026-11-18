@@ -1,0 +1,297 @@
+{
+  "puzzle_id": "4x4_04_ext_professions",
+  "title": "4x4 Stage 4 — Guild Investigation",
+  "difficulty": "Hard",
+  "grid_size": 4,
+  "description": "4x4 puzzle starting from a single card (15 deduction steps).",
+  "allow_inconsistent": false,
+  "initial_revealed": [
+    "A4"
+  ],
+  "cards": [
+    {
+      "cell_id": "A1",
+      "name": "Abel",
+      "profession": "Detective",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A1",
+        "owner_cell": "A1",
+        "type": "PARITY",
+        "text": "There is an odd number of criminals in all Astronauts.",
+        "region": {
+          "type": "PROFESSION",
+          "profession": "Astronaut"
+        },
+        "parity": "ODD"
+      }
+    },
+    {
+      "cell_id": "B1",
+      "name": "Bea",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B1",
+        "owner_cell": "B1",
+        "type": "PARITY",
+        "text": "There is an odd number of criminals in all Cooks.",
+        "region": {
+          "type": "PROFESSION",
+          "profession": "Cook"
+        },
+        "parity": "ODD"
+      }
+    },
+    {
+      "cell_id": "C1",
+      "name": "Clara",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C1",
+        "owner_cell": "C1",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in common neighbors of Franz (B2) and Hannah (D2) is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "COMMON_NEIGHBORS",
+          "target": "B2",
+          "target2": "D2"
+        }
+      }
+    },
+    {
+      "cell_id": "D1",
+      "name": "Derek",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D1",
+        "owner_cell": "D1",
+        "type": "EXACTLY",
+        "text": "Exactly 3 people in row 4 are criminals.",
+        "count": 3,
+        "region": {
+          "type": "ROW",
+          "row": 4
+        }
+      }
+    },
+    {
+      "cell_id": "A2",
+      "name": "Eliza",
+      "profession": "Astronaut",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A2",
+        "owner_cell": "A2",
+        "type": "PARITY",
+        "text": "There is an odd number of criminals in row 2.",
+        "region": {
+          "type": "ROW",
+          "row": 2
+        },
+        "parity": "ODD"
+      }
+    },
+    {
+      "cell_id": "B2",
+      "name": "Franz",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B2",
+        "owner_cell": "B2",
+        "type": "AT_LEAST",
+        "text": "At least 3 people in row 4 are criminals.",
+        "count": 3,
+        "region": {
+          "type": "ROW",
+          "row": 4
+        }
+      }
+    },
+    {
+      "cell_id": "C2",
+      "name": "Grant",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C2",
+        "owner_cell": "C2",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in {Mara (A4), Noah (B4), Jonas (B3)} is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "A4",
+            "B4",
+            "B3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "D2",
+      "name": "Hannah",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D2",
+        "owner_cell": "D2",
+        "type": "AT_LEAST",
+        "text": "At least 1 people in {Eliza (A2), Hannah (D2), Grant (C2)} are criminals.",
+        "count": 1,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "A2",
+            "D2",
+            "C2"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "A3",
+      "name": "Ivy",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A3",
+        "owner_cell": "A3",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in the neighbors of Bea (B1) are criminals.",
+        "count": 2,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "B1"
+        }
+      }
+    },
+    {
+      "cell_id": "B3",
+      "name": "Jonas",
+      "profession": "Astronaut",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B3",
+        "owner_cell": "B3",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in the neighbors of Derek (D1) are innocents.",
+        "count": 2,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "D1"
+        },
+        "target_status": "INNOCENT"
+      }
+    },
+    {
+      "cell_id": "C3",
+      "name": "Karl",
+      "profession": "Astronaut",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C3",
+        "owner_cell": "C3",
+        "type": "AT_LEAST",
+        "text": "At least 3 people in all Clerks are criminals.",
+        "count": 3,
+        "region": {
+          "type": "PROFESSION",
+          "profession": "Clerk"
+        }
+      }
+    },
+    {
+      "cell_id": "D3",
+      "name": "Leo",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D3",
+        "owner_cell": "D3",
+        "type": "EXACTLY",
+        "text": "Exactly 3 people in the neighbors of Ivy (A3) are innocents.",
+        "count": 3,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "A3"
+        },
+        "target_status": "INNOCENT"
+      }
+    },
+    {
+      "cell_id": "A4",
+      "name": "Mara",
+      "profession": "Guard",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A4",
+        "owner_cell": "A4",
+        "type": "AT_MOST",
+        "text": "At most 0 people in common neighbors of Clara (C1) and Leo (D3) are criminals.",
+        "count": 0,
+        "region": {
+          "type": "COMMON_NEIGHBORS",
+          "target": "C1",
+          "target2": "D3"
+        }
+      }
+    },
+    {
+      "cell_id": "B4",
+      "name": "Noah",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B4",
+        "owner_cell": "B4",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in all Guards is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "PROFESSION",
+          "profession": "Guard"
+        }
+      }
+    },
+    {
+      "cell_id": "C4",
+      "name": "Owen",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C4",
+        "owner_cell": "C4",
+        "type": "AT_LEAST",
+        "text": "At least 3 people in row 4 are criminals.",
+        "count": 3,
+        "region": {
+          "type": "ROW",
+          "row": 4
+        }
+      }
+    },
+    {
+      "cell_id": "D4",
+      "name": "Priya",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D4",
+        "owner_cell": "D4",
+        "type": "EXACTLY",
+        "text": "Exactly 3 people in the neighbors of Grant (C2) are criminals.",
+        "count": 3,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "C2"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "puzzle_id": "3x3_02_neighbors_chain",
+  "title": "3x3 Stage 2 — Neighbor Watch",
+  "difficulty": "Medium",
+  "grid_size": 3,
+  "description": "3x3 core puzzle emphasizing neighbor and column counts.",
+  "allow_inconsistent": false,
+  "initial_revealed": [
+    "A1",
+    "A3"
+  ],
+  "cards": [
+    {
+      "cell_id": "A1",
+      "name": "Abel",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A1",
+        "owner_cell": "A1",
+        "type": "AT_MOST",
+        "text": "At most 0 people in row 1 are criminals.",
+        "count": 0,
+        "region": {
+          "type": "ROW",
+          "row": 1
+        }
+      }
+    },
+    {
+      "cell_id": "B1",
+      "name": "Bea",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B1",
+        "owner_cell": "B1",
+        "type": "SAME",
+        "text": "Franz and Ivy have the same status.",
+        "target1": "C2",
+        "target2": "C3"
+      }
+    },
+    {
+      "cell_id": "C1",
+      "name": "Clara",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C1",
+        "owner_cell": "C1",
+        "type": "AT_LEAST",
+        "text": "At least 2 people in the neighbors of Franz (C2) are criminals.",
+        "count": 2,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "C2"
+        }
+      }
+    },
+    {
+      "cell_id": "A2",
+      "name": "Derek",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A2",
+        "owner_cell": "A2",
+        "type": "SAME",
+        "text": "Abel and Derek have the same status.",
+        "target1": "A1",
+        "target2": "A2"
+      }
+    },
+    {
+      "cell_id": "B2",
+      "name": "Eliza",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B2",
+        "owner_cell": "B2",
+        "type": "AT_LEAST",
+        "text": "At least 1 people in {Clara (C1), Eliza (B2)} are criminals.",
+        "count": 1,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "C1",
+            "B2"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "C2",
+      "name": "Franz",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C2",
+        "owner_cell": "C2",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in the neighbors of Grant (A3) are criminals.",
+        "count": 2,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "A3"
+        }
+      }
+    },
+    {
+      "cell_id": "A3",
+      "name": "Grant",
+      "profession": "Guard",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A3",
+        "owner_cell": "A3",
+        "type": "NO",
+        "text": "There are no criminals in {Clara (C1), Ivy (C3)}.",
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "C1",
+            "C3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "B3",
+      "name": "Hannah",
+      "profession": "Guard",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B3",
+        "owner_cell": "B3",
+        "type": "NO",
+        "text": "There are no criminals in row 1.",
+        "region": {
+          "type": "ROW",
+          "row": 1
+        }
+      }
+    },
+    {
+      "cell_id": "C3",
+      "name": "Ivy",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C3",
+        "owner_cell": "C3",
+        "type": "AT_MOST",
+        "text": "At most 1 people in row 2 are criminals.",
+        "count": 1,
+        "region": {
+          "type": "ROW",
+          "row": 2
+        }
+      }
+    }
+  ]
+}

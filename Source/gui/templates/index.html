@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Griductive Solver — Trò Chơi Suy Luận Logic Mệnh Đề (CSC14003)</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23d93848'/><text x='16' y='23' font-family='sans-serif' font-size='20' font-weight='bold' text-anchor='middle' fill='white'>G</text></svg>" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-badge">G</div>
+      <div>
+        <h1>Griductive Solver</h1>
+        <p id="lblSubtitle" class="subtitle">Trò chơi Suy luận Logic Mệnh đề — Không Đoán Mò (CNF &amp; DPLL SAT)</p>
+      </div>
+    </div>
+
+    <div class="controls-bar">
+      <div class="control-group">
+        <label id="lblStage" for="puzzleSelect">Màn chơi</label>
+        <select id="puzzleSelect" title="Chọn màn chơi có sẵn"></select>
+        <label id="lblUploadJson" class="btn btn-outline file-upload-btn" title="Tải file màn chơi JSON tùy chỉnh">
+          <span id="txtUploadJson">Tải JSON</span>
+          <input type="file" id="jsonFileInput" accept=".json" hidden />
+        </label>
+      </div>
+
+      <div class="control-group">
+        <button id="btnRestart" class="btn btn-outline" title="Đặt lại bàn cờ về trạng thái mở đầu">Chơi lại</button>
+        <button id="btnHint" class="btn btn-hint" title="Gợi ý ô suy luận tiếp theo &amp; manh mối liên quan (không đọc đáp án ẩn)">Gợi ý</button>
+        <button id="btnStep" class="btn btn-primary" title="Chạy 1 bước suy diễn tự động">Giải 1 bước</button>
+        <button id="btnAutoSolve" class="btn btn-accent" title="Tự động giải từng bước">Tự động giải</button>
+        <select id="speedSelect" class="speed-select" title="Tốc độ chạy tự động">
+          <option value="650">Vừa (0.65s)</option>
+          <option value="1100">Chậm / Demo (1.1s)</option>
+          <option value="220">Nhanh (0.22s)</option>
+          <option value="0">Tức thì</option>
+        </select>
+        <button id="btnInspectCNF" class="btn btn-cnf" title="Soi trực tiếp các mệnh đề CNF của kho tri thức hiện tại">Soi CNF (KB<sub>t</sub>)</button>
+        <button id="btnUniqueness" class="btn btn-outline" title="Kiểm tra tính duy nhất nghiệm của toàn bộ manh mối">Kiểm tra Duy nhất</button>
+        <button id="btnLangToggle" class="btn btn-outline" title="Chuyển đổi ngôn ngữ Tiếng Việt / English">🇻🇳 Tiếng Việt</button>
+      </div>
+    </div>
+  </header>
+
+  <section id="statusBanner" class="status-banner status-info">
+    <span id="statusBadge" class="status-tag">SẴN SÀNG</span>
+    <span id="statusText">Chọn "Vô tội" hoặc "Tội phạm" cho nghi phạm đã đủ cơ sở suy luận, bấm vào thẻ đã mở để soi vùng manh mối, hoặc dùng nút Gợi ý / Tự động giải.</span>
+    <button id="btnClearHighlight" class="btn-mini" hidden>Bỏ đánh dấu</button>
+  </section>
+
+  <main class="workspace">
+    <!-- Left: Interactive N x N Griductive Board -->
+    <section class="board-panel">
+      <div class="board-header">
+        <div>
+          <h2 id="puzzleTitle">Đang tải...</h2>
+          <p id="puzzleDesc" class="puzzle-desc"></p>
+        </div>
+        <div class="progress-pill">
+          <span id="progressLabel">0 / 0 Đã mở</span>
+          <span id="difficultyBadge" class="diff-badge">Dễ</span>
+        </div>
+      </div>
+
+      <div id="boardWrapper" class="board-wrapper"></div>
+
+      <div class="legend-bar">
+        <span><i class="dot dot-innocent"></i> <span id="legInno">Vô tội (¬C<sub>i</sub>)</span></span>
+        <span><i class="dot dot-criminal"></i> <span id="legCrim">Tội phạm (C<sub>i</sub>)</span></span>
+        <span><i class="dot dot-hl-primary"></i> <span id="legHl1">Vùng manh mối / Ô gợi ý</span></span>
+        <span><i class="dot dot-hl-secondary"></i> <span id="legHl2">Vùng đối chiếu / Thẻ hỗ trợ</span></span>
+      </div>
+    </section>
+
+    <!-- Right: Solver Config, KB_t Telemetry, Uniqueness, and Deduction Trace -->
+    <aside class="inspector-panel">
+      <div class="panel-card">
+        <h3 id="hdrConfig">Cấu hình Mã hóa CNF &amp; Bộ giải DPLL</h3>
+        <div class="settings-grid">
+          <label>
+            <span id="lblEncMode">Mã hóa lực lượng CNF</span>
+            <select id="selEncoding">
+              <option value="COMBINATORIAL">Tổ hợp trực tiếp (0 biến phụ)</option>
+              <option value="SEQUENTIAL">Bộ đếm tuần tự Sinz (Có biến phụ)</option>
+            </select>
+          </label>
+          <label>
+            <span id="lblHeurMode">Chiến lược chọn biến DPLL</span>
+            <select id="selHeuristic">
+              <option value="FIXED_ORDER">Thứ tự biến cố định</option>
+              <option value="JEROSLOW_WANG">Jeroslow-Wang tất định</option>
+            </select>
+          </label>
+        </div>
+        <div class="checkbox-row">
+          <label><input type="checkbox" id="chkPureLiteral" /> <span id="lblPLE">Khử literal thuần (PLE)</span></label>
+          <label><input type="checkbox" id="chkWitnessPruning" /> <span id="lblPrune">Cắt tỉa theo mô hình mẫu (Witness)</span></label>
+        </div>
+      </div>
+
+      <div class="panel-card">
+        <div class="card-title-row">
+          <h3 id="hdrStats">Kho Tri Thức Công Khai (KB<sub>t</sub>) &amp; DPLL</h3>
+          <button id="btnQuickCNF" class="btn-mini" title="Mở cửa sổ xem mệnh đề CNF">Xem mệnh đề</button>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric-box">
+            <span class="m-val" id="mPrimaryVars">0</span>
+            <span class="m-lbl" id="mlPrimary">Biến sơ cấp</span>
+          </div>
+          <div class="metric-box">
+            <span class="m-val" id="mAuxVars">0</span>
+            <span class="m-lbl" id="mlAux">Biến phụ</span>
+          </div>
+          <div class="metric-box">
+            <span class="m-val" id="mClauses">0</span>
+            <span class="m-lbl" id="mlClauses">Mệnh đề CNF</span>
+          </div>
+          <div class="metric-box">
+            <span class="m-val" id="mSatCalls">0</span>
+            <span class="m-lbl" id="mlSat">Lần gọi SAT</span>
+          </div>
+          <div class="metric-box">
+            <span class="m-val" id="mPropagations">0</span>
+            <span class="m-lbl" id="mlProp">Lan truyền</span>
+          </div>
+          <div class="metric-box">
+            <span class="m-val" id="mDecisions">0</span>
+            <span class="m-lbl" id="mlDec">Phân nhánh</span>
+          </div>
+          <div class="metric-box">
+            <span class="m-val" id="mBacktracks">0</span>
+            <span class="m-lbl" id="mlBt">Quay lui</span>
+          </div>
+          <div class="metric-box">
+            <span class="m-val" id="mRuntime">0.0 ms</span>
+            <span class="m-lbl" id="mlTime">Thời gian DPLL</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="uniquenessBox" class="panel-card uniqueness-card" hidden>
+        <div class="card-title-row">
+          <h3 id="hdrUniq">Kiểm tra Tính Duy nhất Nghiệm</h3>
+          <button id="btnCloseUniq" class="btn-mini">Ẩn</button>
+        </div>
+        <div id="uniquenessContent"></div>
+      </div>
+
+      <div class="panel-card trace-card">
+        <div class="card-title-row">
+          <h3 id="hdrTrace">Lịch sử Suy diễn &amp; Nước đi</h3>
+          <span id="traceCountBadge" class="count-pill">0 bước</span>
+        </div>
+        <div id="traceList" class="trace-list">
+          <p class="empty-trace">Chưa có bước suy diễn nào. Hãy tự kết luận một nghi phạm hoặc bấm <strong>Giải 1 bước</strong> / <strong>Tự động giải</strong> để xem truy vấn SAT.</p>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Live KB_t CNF Formula Inspector Modal -->
+  <div id="cnfModalBackdrop" class="modal-backdrop" hidden>
+    <div class="modal-dialog" role="dialog" aria-labelledby="cnfModalTitle">
+      <div class="modal-header">
+        <div>
+          <h2 id="cnfModalTitle">Soi Trực Tiếp Công Thức CNF Của Kho Tri Thức (KB<sub>t</sub>)</h2>
+          <p id="cnfModalSubtitle" class="modal-subtitle"></p>
+        </div>
+        <div class="modal-header-actions">
+          <button id="btnDownloadCNF" class="btn btn-outline btn-sm">Tải file .cnf</button>
+          <button id="btnCloseCNFModal" class="btn btn-danger btn-sm">Đóng</button>
+        </div>
+      </div>
+
+      <div class="modal-tabs">
+        <button class="tab-btn active" data-tab="symbolic" id="tabBtnSym">Mệnh đề Ký hiệu (Theo từng thẻ)</button>
+        <button class="tab-btn" data-tab="variables" id="tabBtnVar">Bảng Ánh xạ Biến (C<sub>i</sub> &amp; Biến phụ)</button>
+        <button class="tab-btn" data-tab="dimacs" id="tabBtnDimacs">Chuẩn DIMACS .cnf</button>
+      </div>
+
+      <div class="modal-body">
+        <div id="cnfTabSymbolic" class="tab-pane"></div>
+        <div id="cnfTabVariables" class="tab-pane" hidden></div>
+        <div id="cnfTabDimacs" class="tab-pane" hidden>
+          <pre id="cnfDimacsPre" class="dimacs-pre"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

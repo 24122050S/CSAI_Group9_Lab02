@@ -1,0 +1,290 @@
+{
+  "puzzle_id": "4x4_02_core_precinct",
+  "title": "4x4 Stage 2 — Precinct Ledger",
+  "difficulty": "Medium",
+  "grid_size": 4,
+  "description": "4x4 core puzzle with 14 sequential deduction steps.",
+  "allow_inconsistent": false,
+  "initial_revealed": [
+    "A1",
+    "D4"
+  ],
+  "cards": [
+    {
+      "cell_id": "A1",
+      "name": "Abel",
+      "profession": "Painter",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A1",
+        "owner_cell": "A1",
+        "type": "NO",
+        "text": "There are no criminals in {Franz (B2), Priya (D4)}.",
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B2",
+            "D4"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "B1",
+      "name": "Bea",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B1",
+        "owner_cell": "B1",
+        "type": "EXACTLY",
+        "text": "Exactly 5 people in the neighbors of Jonas (B3) are criminals.",
+        "count": 5,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "B3"
+        }
+      }
+    },
+    {
+      "cell_id": "C1",
+      "name": "Clara",
+      "profession": "Farmer",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C1",
+        "owner_cell": "C1",
+        "type": "DIFFERENT",
+        "text": "Eliza and Franz have different statuses.",
+        "target1": "A2",
+        "target2": "B2"
+      }
+    },
+    {
+      "cell_id": "D1",
+      "name": "Derek",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D1",
+        "owner_cell": "D1",
+        "type": "AT_LEAST",
+        "text": "At least 3 people in the neighbors of Karl (C3) are criminals.",
+        "count": 3,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "C3"
+        }
+      }
+    },
+    {
+      "cell_id": "A2",
+      "name": "Eliza",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A2",
+        "owner_cell": "A2",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in the neighbors of Eliza (A2) are criminals.",
+        "count": 2,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "A2"
+        }
+      }
+    },
+    {
+      "cell_id": "B2",
+      "name": "Franz",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B2",
+        "owner_cell": "B2",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in the neighbors of Derek (D1) is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "D1"
+        }
+      }
+    },
+    {
+      "cell_id": "C2",
+      "name": "Grant",
+      "profession": "Detective",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C2",
+        "owner_cell": "C2",
+        "type": "SAME",
+        "text": "Leo and Eliza have the same status.",
+        "target1": "D3",
+        "target2": "A2"
+      }
+    },
+    {
+      "cell_id": "D2",
+      "name": "Hannah",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D2",
+        "owner_cell": "D2",
+        "type": "SAME",
+        "text": "Leo and Jonas have the same status.",
+        "target1": "D3",
+        "target2": "B3"
+      }
+    },
+    {
+      "cell_id": "A3",
+      "name": "Ivy",
+      "profession": "Astronaut",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A3",
+        "owner_cell": "A3",
+        "type": "AT_LEAST",
+        "text": "At least 1 people in {Karl (C3), Abel (A1)} are criminals.",
+        "count": 1,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "C3",
+            "A1"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "B3",
+      "name": "Jonas",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B3",
+        "owner_cell": "B3",
+        "type": "EXACTLY",
+        "text": "Exactly 3 people in the neighbors of Owen (C4) are criminals.",
+        "count": 3,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "C4"
+        }
+      }
+    },
+    {
+      "cell_id": "C3",
+      "name": "Karl",
+      "profession": "Painter",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C3",
+        "owner_cell": "C3",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in column B is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "COL",
+          "col": "B"
+        }
+      }
+    },
+    {
+      "cell_id": "D3",
+      "name": "Leo",
+      "profession": "Painter",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D3",
+        "owner_cell": "D3",
+        "type": "SAME",
+        "text": "Ivy and Derek have the same status.",
+        "target1": "A3",
+        "target2": "D1"
+      }
+    },
+    {
+      "cell_id": "A4",
+      "name": "Mara",
+      "profession": "Guard",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A4",
+        "owner_cell": "A4",
+        "type": "AT_LEAST",
+        "text": "At least 1 people in column B are criminals.",
+        "count": 1,
+        "region": {
+          "type": "COL",
+          "col": "B"
+        }
+      }
+    },
+    {
+      "cell_id": "B4",
+      "name": "Noah",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B4",
+        "owner_cell": "B4",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in {Franz (B2), Eliza (A2)} is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B2",
+            "A2"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "C4",
+      "name": "Owen",
+      "profession": "Farmer",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C4",
+        "owner_cell": "C4",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in {Ivy (A3), Priya (D4), Abel (A1)} is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "A3",
+            "D4",
+            "A1"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "D4",
+      "name": "Priya",
+      "profession": "Astronaut",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D4",
+        "owner_cell": "D4",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in {Priya (D4), Clara (C1), Owen (C4)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "D4",
+            "C1",
+            "C4"
+          ]
+        }
+      }
+    }
+  ]
+}

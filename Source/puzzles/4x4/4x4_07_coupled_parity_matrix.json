@@ -1,0 +1,343 @@
+{
+  "puzzle_id": "4x4_07_coupled_parity_matrix",
+  "title": "4x4 Coupled 2 — Parity & Cardinality Matrix",
+  "difficulty": "Coupled-Hard",
+  "grid_size": 4,
+  "description": "Couples 6-variable Tseitin XOR parity with cardinality bounds so deduction requires multi-clause DPLL backtracking.",
+  "allow_inconsistent": false,
+  "initial_revealed": [
+    "A1",
+    "B1",
+    "C1",
+    "D1",
+    "A4"
+  ],
+  "cards": [
+    {
+      "cell_id": "A1",
+      "name": "Abel",
+      "profession": "Guard",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A1",
+        "owner_cell": "A1",
+        "type": "PARITY",
+        "text": "There is an odd number of criminals in {Eliza (A2), Franz (B2), Grant (C2), Hannah (D2), Ivy (A3), Owen (C4)}.",
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "A3",
+            "C4"
+          ]
+        },
+        "parity": "ODD"
+      }
+    },
+    {
+      "cell_id": "B1",
+      "name": "Bea",
+      "profession": "Painter",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B1",
+        "owner_cell": "B1",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in {Jonas (B3), Karl (C3), Leo (D3), Noah (B4)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B3",
+            "C3",
+            "D3",
+            "B4"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "C1",
+      "name": "Clara",
+      "profession": "Astronaut",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C1",
+        "owner_cell": "C1",
+        "type": "AT_MOST",
+        "text": "At most 2 people in {Jonas (B3), Karl (C3), Leo (D3), Priya (D4)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B3",
+            "C3",
+            "D3",
+            "D4"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "D1",
+      "name": "Derek",
+      "profession": "Painter",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D1",
+        "owner_cell": "D1",
+        "type": "AT_MOST",
+        "text": "At most 2 people in {Jonas (B3), Karl (C3), Noah (B4), Priya (D4)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B3",
+            "C3",
+            "B4",
+            "D4"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "A2",
+      "name": "Eliza",
+      "profession": "Painter",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A2",
+        "owner_cell": "A2",
+        "type": "AT_MOST",
+        "text": "At most 1 people in {Franz (B2), Grant (C2)} are criminals.",
+        "count": 1,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B2",
+            "C2"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "B2",
+      "name": "Franz",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B2",
+        "owner_cell": "B2",
+        "type": "AT_LEAST",
+        "text": "At least 2 people in {Ivy (A3), Leo (D3), Karl (C3)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "A3",
+            "D3",
+            "C3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "C2",
+      "name": "Grant",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C2",
+        "owner_cell": "C2",
+        "type": "SAME",
+        "text": "Karl and Noah have the same status.",
+        "target1": "C3",
+        "target2": "B4"
+      }
+    },
+    {
+      "cell_id": "D2",
+      "name": "Hannah",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D2",
+        "owner_cell": "D2",
+        "type": "AT_LEAST",
+        "text": "At least 2 people in {Franz (B2), Leo (D3), Noah (B4)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B2",
+            "D3",
+            "B4"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "A3",
+      "name": "Ivy",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A3",
+        "owner_cell": "A3",
+        "type": "AT_LEAST",
+        "text": "At least 2 people in {Franz (B2), Grant (C2), Hannah (D2)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B2",
+            "C2",
+            "D2"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "B3",
+      "name": "Jonas",
+      "profession": "Farmer",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B3",
+        "owner_cell": "B3",
+        "type": "EXACTLY",
+        "text": "Exactly 3 people in {Eliza (A2), Franz (B2), Grant (C2), Hannah (D2), Ivy (A3)} are criminals.",
+        "count": 3,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "A3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "C3",
+      "name": "Karl",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C3",
+        "owner_cell": "C3",
+        "type": "DIFFERENT",
+        "text": "Karl and Leo have different statuses.",
+        "target1": "C3",
+        "target2": "D3"
+      }
+    },
+    {
+      "cell_id": "D3",
+      "name": "Leo",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D3",
+        "owner_cell": "D3",
+        "type": "MORE_CRIMINALS",
+        "text": "There are more criminals in row 3 than in row 4.",
+        "region": {
+          "type": "ROW",
+          "row": 3
+        },
+        "region2": {
+          "type": "ROW",
+          "row": 4
+        }
+      }
+    },
+    {
+      "cell_id": "A4",
+      "name": "Mara",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A4",
+        "owner_cell": "A4",
+        "type": "AT_MOST",
+        "text": "At most 2 people in {Karl (C3), Leo (D3), Noah (B4), Priya (D4)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "C3",
+            "D3",
+            "B4",
+            "D4"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "B4",
+      "name": "Noah",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B4",
+        "owner_cell": "B4",
+        "type": "PARITY",
+        "text": "There is an even number of criminals in column B.",
+        "region": {
+          "type": "COL",
+          "col": "B"
+        },
+        "parity": "EVEN"
+      }
+    },
+    {
+      "cell_id": "C4",
+      "name": "Owen",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C4",
+        "owner_cell": "C4",
+        "type": "AT_MOST",
+        "text": "At most 2 people in {Eliza (A2), Franz (B2), Grant (C2), Hannah (D2)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "A2",
+            "B2",
+            "C2",
+            "D2"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "D4",
+      "name": "Priya",
+      "profession": "Detective",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D4",
+        "owner_cell": "D4",
+        "type": "AT_MOST",
+        "text": "At most 1 people in {Karl (C3), Leo (D3), Noah (B4)} are criminals.",
+        "count": 1,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "C3",
+            "D3",
+            "B4"
+          ]
+        }
+      }
+    }
+  ]
+}

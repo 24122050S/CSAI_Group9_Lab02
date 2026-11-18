@@ -1,0 +1,280 @@
+{
+  "puzzle_id": "4x4_05_ext_deep_chain",
+  "title": "4x4 Stage 5 — Silent Witness",
+  "difficulty": "Hard",
+  "grid_size": 4,
+  "description": "4x4 puzzle featuring deep multi-wave deduction chains.",
+  "allow_inconsistent": false,
+  "initial_revealed": [
+    "A2",
+    "C4"
+  ],
+  "cards": [
+    {
+      "cell_id": "A1",
+      "name": "Abel",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A1",
+        "owner_cell": "A1",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in the neighbors of Derek (D1) are innocents.",
+        "count": 2,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "D1"
+        },
+        "target_status": "INNOCENT"
+      }
+    },
+    {
+      "cell_id": "B1",
+      "name": "Bea",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B1",
+        "owner_cell": "B1",
+        "type": "SAME",
+        "text": "Bea and Ivy have the same status.",
+        "target1": "B1",
+        "target2": "A3"
+      }
+    },
+    {
+      "cell_id": "C1",
+      "name": "Clara",
+      "profession": "Farmer",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C1",
+        "owner_cell": "C1",
+        "type": "PARITY",
+        "text": "There is an even number of criminals in row 3.",
+        "region": {
+          "type": "ROW",
+          "row": 3
+        },
+        "parity": "EVEN"
+      }
+    },
+    {
+      "cell_id": "D1",
+      "name": "Derek",
+      "profession": "Astronaut",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D1",
+        "owner_cell": "D1",
+        "type": "MORE_CRIMINALS",
+        "text": "There are more criminals in row 2 than in row 4.",
+        "region": {
+          "type": "ROW",
+          "row": 2
+        },
+        "region2": {
+          "type": "ROW",
+          "row": 4
+        }
+      }
+    },
+    {
+      "cell_id": "A2",
+      "name": "Eliza",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A2",
+        "owner_cell": "A2",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in the neighbors of Abel (A1) is Innocent.",
+        "count": 1,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "A1"
+        },
+        "target_status": "INNOCENT"
+      }
+    },
+    {
+      "cell_id": "B2",
+      "name": "Franz",
+      "profession": "Guard",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B2",
+        "owner_cell": "B2",
+        "type": "SAME",
+        "text": "Jonas and Franz have the same status.",
+        "target1": "B3",
+        "target2": "B2"
+      }
+    },
+    {
+      "cell_id": "C2",
+      "name": "Grant",
+      "profession": "Detective",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C2",
+        "owner_cell": "C2",
+        "type": "AT_MOST",
+        "text": "At most 1 people in common neighbors of Noah (B4) and Karl (C3) are criminals.",
+        "count": 1,
+        "region": {
+          "type": "COMMON_NEIGHBORS",
+          "target": "B4",
+          "target2": "C3"
+        }
+      }
+    },
+    {
+      "cell_id": "D2",
+      "name": "Hannah",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D2",
+        "owner_cell": "D2",
+        "type": "AT_MOST",
+        "text": "At most 2 people in the neighbors of Ivy (A3) are criminals.",
+        "count": 2,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "A3"
+        }
+      }
+    },
+    {
+      "cell_id": "A3",
+      "name": "Ivy",
+      "profession": "Farmer",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A3",
+        "owner_cell": "A3",
+        "type": "SAME",
+        "text": "Derek and Franz have the same status.",
+        "target1": "D1",
+        "target2": "B2"
+      }
+    },
+    {
+      "cell_id": "B3",
+      "name": "Jonas",
+      "profession": "Farmer",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B3",
+        "owner_cell": "B3",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in column C is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "COL",
+          "col": "C"
+        }
+      }
+    },
+    {
+      "cell_id": "C3",
+      "name": "Karl",
+      "profession": "Astronaut",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C3",
+        "owner_cell": "C3",
+        "type": "EXACTLY",
+        "text": "Exactly 3 people in the neighbors of Ivy (A3) are innocents.",
+        "count": 3,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "A3"
+        },
+        "target_status": "INNOCENT"
+      }
+    },
+    {
+      "cell_id": "D3",
+      "name": "Leo",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D3",
+        "owner_cell": "D3",
+        "type": "DIFFERENT",
+        "text": "Clara and Owen have different statuses.",
+        "target1": "C1",
+        "target2": "C4"
+      }
+    },
+    {
+      "cell_id": "A4",
+      "name": "Mara",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A4",
+        "owner_cell": "A4",
+        "type": "AT_MOST",
+        "text": "At most 2 people in the neighbors of Bea (B1) are criminals.",
+        "count": 2,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "B1"
+        }
+      }
+    },
+    {
+      "cell_id": "B4",
+      "name": "Noah",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B4",
+        "owner_cell": "B4",
+        "type": "AT_MOST",
+        "text": "At most 1 people in column D are criminals.",
+        "count": 1,
+        "region": {
+          "type": "COL",
+          "col": "D"
+        }
+      }
+    },
+    {
+      "cell_id": "C4",
+      "name": "Owen",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C4",
+        "owner_cell": "C4",
+        "type": "NO",
+        "text": "There are no criminals in the neighbors of Priya (D4).",
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "D4"
+        }
+      }
+    },
+    {
+      "cell_id": "D4",
+      "name": "Priya",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D4",
+        "owner_cell": "D4",
+        "type": "PARITY",
+        "text": "There is an odd number of criminals in column A.",
+        "region": {
+          "type": "COL",
+          "col": "A"
+        },
+        "parity": "ODD"
+      }
+    }
+  ]
+}

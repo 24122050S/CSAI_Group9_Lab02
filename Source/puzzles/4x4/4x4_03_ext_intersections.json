@@ -1,0 +1,309 @@
+{
+  "puzzle_id": "4x4_03_ext_intersections",
+  "title": "4x4 Stage 3 — Crossfire",
+  "difficulty": "Medium",
+  "grid_size": 4,
+  "description": "4x4 puzzle combining intersection regions, parity, and count comparisons.",
+  "allow_inconsistent": false,
+  "initial_revealed": [
+    "D1",
+    "B3"
+  ],
+  "cards": [
+    {
+      "cell_id": "A1",
+      "name": "Abel",
+      "profession": "Astronaut",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A1",
+        "owner_cell": "A1",
+        "type": "AT_MOST",
+        "text": "At most 1 people in all Astronauts are criminals.",
+        "count": 1,
+        "region": {
+          "type": "PROFESSION",
+          "profession": "Astronaut"
+        }
+      }
+    },
+    {
+      "cell_id": "B1",
+      "name": "Bea",
+      "profession": "Painter",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B1",
+        "owner_cell": "B1",
+        "type": "PARITY",
+        "text": "There is an even number of criminals in the neighbors of Derek (D1).",
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "D1"
+        },
+        "parity": "EVEN"
+      }
+    },
+    {
+      "cell_id": "C1",
+      "name": "Clara",
+      "profession": "Detective",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C1",
+        "owner_cell": "C1",
+        "type": "PARITY",
+        "text": "There is an even number of criminals in cells to the right of Abel (A1).",
+        "region": {
+          "type": "DIRECTIONAL",
+          "target": "A1",
+          "direction": "RIGHT"
+        },
+        "parity": "EVEN"
+      }
+    },
+    {
+      "cell_id": "D1",
+      "name": "Derek",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D1",
+        "owner_cell": "D1",
+        "type": "AT_LEAST",
+        "text": "At least 2 people in all Cooks are criminals.",
+        "count": 2,
+        "region": {
+          "type": "PROFESSION",
+          "profession": "Cook"
+        }
+      }
+    },
+    {
+      "cell_id": "A2",
+      "name": "Eliza",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A2",
+        "owner_cell": "A2",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in the neighbors of Eliza (A2) ∩ column A are criminals.",
+        "count": 2,
+        "region": {
+          "type": "INTERSECTION",
+          "sub_regions": [
+            {
+              "type": "NEIGHBORS",
+              "target": "A2"
+            },
+            {
+              "type": "COL",
+              "col": "A"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "B2",
+      "name": "Franz",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B2",
+        "owner_cell": "B2",
+        "type": "EXACTLY",
+        "text": "Exactly 1 person in all Painters is a Criminal.",
+        "count": 1,
+        "region": {
+          "type": "PROFESSION",
+          "profession": "Painter"
+        }
+      }
+    },
+    {
+      "cell_id": "C2",
+      "name": "Grant",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C2",
+        "owner_cell": "C2",
+        "type": "AT_LEAST",
+        "text": "At least 4 people in the neighbors of Ivy (A3) are criminals.",
+        "count": 4,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "A3"
+        }
+      }
+    },
+    {
+      "cell_id": "D2",
+      "name": "Hannah",
+      "profession": "Farmer",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D2",
+        "owner_cell": "D2",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in {Derek (D1), Noah (B4)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "D1",
+            "B4"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "A3",
+      "name": "Ivy",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A3",
+        "owner_cell": "A3",
+        "type": "AT_LEAST",
+        "text": "At least 5 people in the neighbors of Clara (C1) are criminals.",
+        "count": 5,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "C1"
+        }
+      }
+    },
+    {
+      "cell_id": "B3",
+      "name": "Jonas",
+      "profession": "Painter",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B3",
+        "owner_cell": "B3",
+        "type": "AT_LEAST",
+        "text": "At least 2 people in the neighbors of Mara (A4) are criminals.",
+        "count": 2,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "A4"
+        }
+      }
+    },
+    {
+      "cell_id": "C3",
+      "name": "Karl",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C3",
+        "owner_cell": "C3",
+        "type": "PARITY",
+        "text": "There is an even number of criminals in the neighbors of Eliza (A2).",
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "A2"
+        },
+        "parity": "EVEN"
+      }
+    },
+    {
+      "cell_id": "D3",
+      "name": "Leo",
+      "profession": "Clerk",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D3",
+        "owner_cell": "D3",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in common neighbors of Karl (C3) and Leo (D3) are criminals.",
+        "count": 2,
+        "region": {
+          "type": "COMMON_NEIGHBORS",
+          "target": "C3",
+          "target2": "D3"
+        }
+      }
+    },
+    {
+      "cell_id": "A4",
+      "name": "Mara",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A4",
+        "owner_cell": "A4",
+        "type": "AT_MOST",
+        "text": "At most 2 people in the neighbors of Hannah (D2) are criminals.",
+        "count": 2,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "D2"
+        }
+      }
+    },
+    {
+      "cell_id": "B4",
+      "name": "Noah",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B4",
+        "owner_cell": "B4",
+        "type": "EXACTLY",
+        "text": "Exactly 4 people in the neighbors of Bea (B1) are criminals.",
+        "count": 4,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "B1"
+        }
+      }
+    },
+    {
+      "cell_id": "C4",
+      "name": "Owen",
+      "profession": "Astronaut",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C4",
+        "owner_cell": "C4",
+        "type": "AT_LEAST",
+        "text": "At least 1 people in the neighbors of Franz (B2) ∩ column C are criminals.",
+        "count": 1,
+        "region": {
+          "type": "INTERSECTION",
+          "sub_regions": [
+            {
+              "type": "NEIGHBORS",
+              "target": "B2"
+            },
+            {
+              "type": "COL",
+              "col": "C"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "D4",
+      "name": "Priya",
+      "profession": "Painter",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D4",
+        "owner_cell": "D4",
+        "type": "AT_LEAST",
+        "text": "At least 4 people in the neighbors of Grant (C2) are criminals.",
+        "count": 4,
+        "region": {
+          "type": "NEIGHBORS",
+          "target": "C2"
+        }
+      }
+    }
+  ]
+}

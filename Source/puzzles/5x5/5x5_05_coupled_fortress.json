@@ -1,0 +1,498 @@
+{
+  "puzzle_id": "5x5_05_coupled_fortress",
+  "title": "5x5 Stress 5 — Coupled Fortress (Extreme Backtrack)",
+  "difficulty": "Coupled-Stress",
+  "grid_size": 5,
+  "description": "Extreme 5x5 backtracking benchmark with an 8-cell coupled band (C(8,4)=70 combinations) above nested non-unit cores.",
+  "allow_inconsistent": false,
+  "initial_revealed": [
+    "A1",
+    "B1",
+    "C1",
+    "D1",
+    "E1"
+  ],
+  "cards": [
+    {
+      "cell_id": "A1",
+      "name": "Abel",
+      "profession": "Clerk",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A1",
+        "owner_cell": "A1",
+        "type": "EXACTLY",
+        "text": "Exactly 4 people in {Franz (A2), Grant (B2), Hannah (C2), Ivy (D2), Jonas (E2), Karl (A3), Leo (B3), Mara (C3)} are criminals.",
+        "count": 4,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "E2",
+            "A3",
+            "B3",
+            "C3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "B1",
+      "name": "Bea",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B1",
+        "owner_cell": "B1",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in {Quilla (B4), Roy (C4), Sophia (D4), Tom (E4)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B4",
+            "C4",
+            "D4",
+            "E4"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "C1",
+      "name": "Clara",
+      "profession": "Painter",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C1",
+        "owner_cell": "C1",
+        "type": "AT_MOST",
+        "text": "At most 2 people in {Quilla (B4), Roy (C4), Sophia (D4), Yara (E5)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B4",
+            "C4",
+            "D4",
+            "E5"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "D1",
+      "name": "Derek",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D1",
+        "owner_cell": "D1",
+        "type": "AT_MOST",
+        "text": "At most 2 people in {Quilla (B4), Roy (C4), Tom (E4), Yara (E5)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B4",
+            "C4",
+            "E4",
+            "E5"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "E1",
+      "name": "Eliza",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_E1",
+        "owner_cell": "E1",
+        "type": "AT_MOST",
+        "text": "At most 2 people in {Roy (C4), Sophia (D4), Tom (E4), Yara (E5)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "C4",
+            "D4",
+            "E4",
+            "E5"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "A2",
+      "name": "Franz",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A2",
+        "owner_cell": "A2",
+        "type": "AT_LEAST",
+        "text": "At least 3 people in {Hannah (C2), Ivy (D2), Jonas (E2), Karl (A3), Leo (B3)} are criminals.",
+        "count": 3,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "C2",
+            "D2",
+            "E2",
+            "A3",
+            "B3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "B2",
+      "name": "Grant",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B2",
+        "owner_cell": "B2",
+        "type": "AT_MOST",
+        "text": "At most 2 people in {Ivy (D2), Jonas (E2), Karl (A3), Leo (B3)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "D2",
+            "E2",
+            "A3",
+            "B3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "C2",
+      "name": "Hannah",
+      "profession": "Detective",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C2",
+        "owner_cell": "C2",
+        "type": "AT_LEAST",
+        "text": "At least 2 people in {Jonas (E2), Karl (A3), Leo (B3)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "E2",
+            "A3",
+            "B3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "D2",
+      "name": "Ivy",
+      "profession": "Cook",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D2",
+        "owner_cell": "D2",
+        "type": "AT_MOST",
+        "text": "At most 1 people in {Karl (A3), Leo (B3)} are criminals.",
+        "count": 1,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "A3",
+            "B3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "E2",
+      "name": "Jonas",
+      "profession": "Farmer",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_E2",
+        "owner_cell": "E2",
+        "type": "AT_LEAST",
+        "text": "At least 2 people in {Leo (B3), Sophia (D4), Tom (E4)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B3",
+            "D4",
+            "E4"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "A3",
+      "name": "Karl",
+      "profession": "Painter",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A3",
+        "owner_cell": "A3",
+        "type": "SAME",
+        "text": "Roy and Tom have the same status.",
+        "target1": "C4",
+        "target2": "E4"
+      }
+    },
+    {
+      "cell_id": "B3",
+      "name": "Leo",
+      "profession": "Farmer",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B3",
+        "owner_cell": "B3",
+        "type": "AT_LEAST",
+        "text": "At least 2 people in {Noah (D3), Sophia (D4), Owen (E3)} are criminals.",
+        "count": 2,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "D3",
+            "D4",
+            "E3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "C3",
+      "name": "Mara",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C3",
+        "owner_cell": "C3",
+        "type": "AT_MOST",
+        "text": "At most 3 people in {Grant (B2), Hannah (C2), Ivy (D2), Jonas (E2), Karl (A3), Leo (B3)} are criminals.",
+        "count": 3,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "B2",
+            "C2",
+            "D2",
+            "E2",
+            "A3",
+            "B3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "D3",
+      "name": "Noah",
+      "profession": "Cook",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D3",
+        "owner_cell": "D3",
+        "type": "SAME",
+        "text": "Uma and Wendy have the same status.",
+        "target1": "A5",
+        "target2": "C5"
+      }
+    },
+    {
+      "cell_id": "E3",
+      "name": "Owen",
+      "profession": "Astronaut",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_E3",
+        "owner_cell": "E3",
+        "type": "DIFFERENT",
+        "text": "Priya and Uma have different statuses.",
+        "target1": "A4",
+        "target2": "A5"
+      }
+    },
+    {
+      "cell_id": "A4",
+      "name": "Priya",
+      "profession": "Detective",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_A4",
+        "owner_cell": "A4",
+        "type": "SAME",
+        "text": "Victor and Xavier have the same status.",
+        "target1": "B5",
+        "target2": "D5"
+      }
+    },
+    {
+      "cell_id": "B4",
+      "name": "Quilla",
+      "profession": "Painter",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_B4",
+        "owner_cell": "B4",
+        "type": "AT_LEAST",
+        "text": "At least 4 people in {Franz (A2), Grant (B2), Hannah (C2), Ivy (D2), Jonas (E2), Karl (A3), Leo (B3)} are criminals.",
+        "count": 4,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "A2",
+            "B2",
+            "C2",
+            "D2",
+            "E2",
+            "A3",
+            "B3"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "C4",
+      "name": "Roy",
+      "profession": "Painter",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_C4",
+        "owner_cell": "C4",
+        "type": "NO",
+        "text": "There are no criminals in {Owen (E3), Priya (A4), Victor (B5), Xavier (D5)}.",
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "E3",
+            "A4",
+            "B5",
+            "D5"
+          ]
+        }
+      }
+    },
+    {
+      "cell_id": "D4",
+      "name": "Sophia",
+      "profession": "Farmer",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_D4",
+        "owner_cell": "D4",
+        "type": "EXACTLY",
+        "text": "Exactly 2 people in row 5 are criminals.",
+        "count": 2,
+        "region": {
+          "type": "ROW",
+          "row": 5
+        }
+      }
+    },
+    {
+      "cell_id": "E4",
+      "name": "Tom",
+      "profession": "Detective",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_E4",
+        "owner_cell": "E4",
+        "type": "DIFFERENT",
+        "text": "Noah and Owen have different statuses.",
+        "target1": "D3",
+        "target2": "E3"
+      }
+    },
+    {
+      "cell_id": "A5",
+      "name": "Uma",
+      "profession": "Farmer",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_A5",
+        "owner_cell": "A5",
+        "type": "DIFFERENT",
+        "text": "Uma and Victor have different statuses.",
+        "target1": "A5",
+        "target2": "B5"
+      }
+    },
+    {
+      "cell_id": "B5",
+      "name": "Victor",
+      "profession": "Farmer",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_B5",
+        "owner_cell": "B5",
+        "type": "DIFFERENT",
+        "text": "Wendy and Xavier have different statuses.",
+        "target1": "C5",
+        "target2": "D5"
+      }
+    },
+    {
+      "cell_id": "C5",
+      "name": "Wendy",
+      "profession": "Guard",
+      "status": "CRIMINAL",
+      "clue": {
+        "clue_id": "clue_C5",
+        "owner_cell": "C5",
+        "type": "PARITY",
+        "text": "There is an even number of criminals in row 5.",
+        "region": {
+          "type": "ROW",
+          "row": 5
+        },
+        "parity": "EVEN"
+      }
+    },
+    {
+      "cell_id": "D5",
+      "name": "Xavier",
+      "profession": "Guard",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_D5",
+        "owner_cell": "D5",
+        "type": "EXACTLY",
+        "text": "Exactly 3 people in the four corners are criminals.",
+        "count": 3,
+        "region": {
+          "type": "CORNERS"
+        }
+      }
+    },
+    {
+      "cell_id": "E5",
+      "name": "Yara",
+      "profession": "Astronaut",
+      "status": "INNOCENT",
+      "clue": {
+        "clue_id": "clue_E5",
+        "owner_cell": "E5",
+        "type": "AT_MOST",
+        "text": "At most 1 people in {Roy (C4), Sophia (D4), Tom (E4)} are criminals.",
+        "count": 1,
+        "region": {
+          "type": "CELL_LIST",
+          "cells": [
+            "C4",
+            "D4",
+            "E4"
+          ]
+        }
+      }
+    }
+  ]
+}
